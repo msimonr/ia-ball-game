@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ia-ball-game/static/css/main.a4687642.chunk.css",
+    "main.js": "/ia-ball-game/static/js/main.77128ac4.chunk.js",
+    "main.js.map": "/ia-ball-game/static/js/main.77128ac4.chunk.js.map",
+    "runtime-main.js": "/ia-ball-game/static/js/runtime-main.3f4525d6.js",
+    "runtime-main.js.map": "/ia-ball-game/static/js/runtime-main.3f4525d6.js.map",
+    "static/js/2.fd8b20c2.chunk.js": "/ia-ball-game/static/js/2.fd8b20c2.chunk.js",
+    "static/js/2.fd8b20c2.chunk.js.map": "/ia-ball-game/static/js/2.fd8b20c2.chunk.js.map",
+    "index.html": "/ia-ball-game/index.html",
+    "precache-manifest.be08d76b21fa2ceedbacccc29ea0c1b4.js": "/ia-ball-game/precache-manifest.be08d76b21fa2ceedbacccc29ea0c1b4.js",
+    "service-worker.js": "/ia-ball-game/service-worker.js",
+    "static/css/main.a4687642.chunk.css.map": "/ia-ball-game/static/css/main.a4687642.chunk.css.map",
+    "static/js/2.fd8b20c2.chunk.js.LICENSE.txt": "/ia-ball-game/static/js/2.fd8b20c2.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3f4525d6.js",
+    "static/js/2.fd8b20c2.chunk.js",
+    "static/css/main.a4687642.chunk.css",
+    "static/js/main.77128ac4.chunk.js"
+  ]
+}
