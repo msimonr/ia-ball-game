@@ -7,12 +7,12 @@ import * as cocossd from "@tensorflow-models/coco-ssd"
 import Webcam from "react-webcam";
 import "./App.css";
 // 2. TODO - Import drawing utility here
-import { drawRect, colision, drawLose } from "./utilities";
+import { drawRect, colision, drawLose, choose} from "./utilities";
 
 //Game variables
 var toque = undefined;
 var id = undefined;
-var circle = {'x': 0, 'y':0, 'r':80, 'dx':1, 'dy':1, 'speed':20};
+var circle = {'x': 0, 'y':0, 'r':50, 'dx':1, 'dy':1, 'speed':20};
 
 function App() {
   const webcamRef = useRef(null);
@@ -70,18 +70,21 @@ function App() {
       }else{
       // --------- MOVIMIENTO CIRCULO EN PANTALLA ---------------
       
+      let positive = [0.7,1.05, 1];
+      let negative = [-0.7,-1.05, -1];
+
       //Direccion horizontal:
-      if(circle.x + circle.r > canvasRef.current.width){
-        circle.dx = -1;
-      }else if(circle.x - circle.r < 0){
-        circle.dx = 1;
+      if(circle.x + circle.r > canvasRef.current.width + 10){
+        circle.dx = choose(negative);
+      }else if(circle.x - circle.r < -10){
+        circle.dx = choose(positive);;
       }
 
       //Direccion vertical:
-      if(circle.y + circle.r > canvasRef.current.height){
-        circle.dy = -1;
-      }else if(circle.y - circle.r < 0){
-        circle.dy = 1;
+      if(circle.y + circle.r > canvasRef.current.height + 10){
+        circle.dy = choose(negative);;
+      }else if(circle.y - circle.r < -10){
+        circle.dy = choose(positive);;
       }
 
       //Actualizar posicion circulo
