@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6b6bc0a6d25d9c6954d96fb67c908207",
+    "revision": "3b663834ba726c2ec6263412213c360a",
     "url": "/ia-ball-game/index.html"
   },
   {
-    "revision": "f92741496751f0338615",
+    "revision": "8cb0d32eb5e026f4daad",
     "url": "/ia-ball-game/static/css/main.a4687642.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ia-ball-game/static/js/2.fd8b20c2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f92741496751f0338615",
-    "url": "/ia-ball-game/static/js/main.77128ac4.chunk.js"
+    "revision": "8cb0d32eb5e026f4daad",
+    "url": "/ia-ball-game/static/js/main.39b3aa37.chunk.js"
   },
   {
     "revision": "aee02b0fc641670c02d1",
