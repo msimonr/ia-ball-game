@@ -3,10 +3,16 @@ import React, { useRef, useState, useEffect } from "react";
 import * as tf from "@tensorflow/tfjs";
 // 1. TODO - Import required model here
 // e.g. import * as tfmodel from "@tensorflow-models/tfmodel";
+import * as cocossd from "@tensorflow-models/coco-ssd"
 import Webcam from "react-webcam";
 import "./App.css";
 // 2. TODO - Import drawing utility here
-// e.g. import { drawRect } from "./utilities";
+import { drawRect, colision, drawLose } from "./utilities";
+
+//Game variables
+var toque = undefined;
+var id = undefined;
+var circle = {'x': 0, 'y':0, 'r':80, 'dx':1, 'dy':1, 'speed':20};
 
 function App() {
   const webcamRef = useRef(null);
@@ -16,9 +22,9 @@ function App() {
   const runCoco = async () => {
     // 3. TODO - Load network 
     // e.g. const net = await cocossd.load();
-    
+    const net = await cocossd.load();
     //  Loop and detect hands
-    setInterval(() => {
+     id = setInterval(() => {
       detect(net);
     }, 10);
   };
@@ -45,12 +51,48 @@ function App() {
 
       // 4. TODO - Make Detections
       // e.g. const obj = await net.detect(video);
-
+      
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
 
+      const obj = await net.detect(video);
+      
+      //console.log(obj);
+
+      //COLISION
+
+      toque = colision(obj, circle);
+
+      if (toque !== undefined){
+        //Hubo colision, se debe mostrar la captura y quedarse ahi.
+        drawLose(video, toque, ctx, circle);
+        clearInterval(id);
+      }else{
+      // --------- MOVIMIENTO CIRCULO EN PANTALLA ---------------
+      
+      //Direccion horizontal:
+      if(circle.x + circle.r > canvasRef.current.width){
+        circle.dx = -1;
+      }else if(circle.x - circle.r < 0){
+        circle.dx = 1;
+      }
+
+      //Direccion vertical:
+      if(circle.y + circle.r > canvasRef.current.height){
+        circle.dy = -1;
+      }else if(circle.y - circle.r < 0){
+        circle.dy = 1;
+      }
+
+      //Actualizar posicion circulo
+      circle.x = circle.x + circle.dx*circle.speed;
+      circle.y = circle.y + circle.dy*circle.speed;
+
+
+
       // 5. TODO - Update drawing utility
-      // drawSomething(obj, ctx)  
+      drawRect(obj, ctx, circle);
+    }
     }
   };
 
