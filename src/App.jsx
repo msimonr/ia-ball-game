@@ -1,18 +1,54 @@
-// Import dependencies
 import React, { useRef, useState, useEffect } from "react";
 import * as tf from "@tensorflow/tfjs";
-// 1. TODO - Import required model here
-// e.g. import * as tfmodel from "@tensorflow-models/tfmodel";
 import * as cocossd from "@tensorflow-models/coco-ssd"
 import Webcam from "react-webcam";
 import "./App.css";
-// 2. TODO - Import drawing utility here
 import { drawRect, colision, drawLose, choose} from "./utilities";
 
 //Game variables
 var toque = undefined;
 var id = undefined;
-var circle = {'x': 0, 'y':0, 'r':50, 'dx':1, 'dy':1, 'speed':20};
+var circle = {'x': -100, 'y':-100, 'r':50, 'dx':1, 'dy':1, 'speed':20};
+
+class Control extends React.Component{
+
+  state = {
+    speed: 20,
+    radio: 50
+  }
+
+  reiniciar = () =>{
+    if(toque !== undefined){
+      circle.x = -100;
+      circle.y = -100;
+      circle.r = this.state.radio;
+      circle.speed = this.state.speed;
+      toque = undefined;     
+    }
+  }
+
+  setSpeed = (e) =>{
+    this.setState({speed: parseFloat(e.target.value)});
+  }
+
+  setRadio = (e) =>{
+    this.setState({radio: parseFloat(e.target.value)});
+  }
+
+  render(){
+    return(
+      <div className="Control">
+        <label>Velocidad de bola</label>
+        <input type="number" min='1' id="speed" defaultValue={this.state.speed} onChange={this.setSpeed}/>
+        <label>Radio de bola</label>
+        <input type="number" min='10' id="radio" defaultValue={this.state.radio} onChange={this.setRadio}/>
+        <button onClick={this.reiniciar}>Reiniciar</button>
+      </div>
+    )
+  }
+}
+
+
 
 function App() {
   const webcamRef = useRef(null);
@@ -31,6 +67,9 @@ function App() {
 
   const detect = async (net) => {
     // Check data is available
+    if(toque !== undefined){
+
+    }else{
     if (
       typeof webcamRef.current !== "undefined" &&
       webcamRef.current !== null &&
@@ -66,25 +105,24 @@ function App() {
       if (toque !== undefined){
         //Hubo colision, se debe mostrar la captura y quedarse ahi.
         drawLose(video, toque, ctx, circle);
-        clearInterval(id);
       }else{
       // --------- MOVIMIENTO CIRCULO EN PANTALLA ---------------
       
-      let positive = [0.7,1.05, 1];
-      let negative = [-0.7,-1.05, -1];
-
+      let arraySpeed = [0.95,1.05, 1];
+      
+      let margen = circle.r * 0.2;
       //Direccion horizontal:
-      if(circle.x + circle.r > canvasRef.current.width + 10){
-        circle.dx = choose(negative);
-      }else if(circle.x - circle.r < -10){
-        circle.dx = choose(positive);;
+      if(circle.x + circle.r > canvasRef.current.width + margen){
+        circle.dx = choose(arraySpeed)*-1;
+      }else if(circle.x - circle.r < -margen){
+        circle.dx = choose(arraySpeed);
       }
 
       //Direccion vertical:
-      if(circle.y + circle.r > canvasRef.current.height + 10){
-        circle.dy = choose(negative);;
-      }else if(circle.y - circle.r < -10){
-        circle.dy = choose(positive);;
+      if(circle.y + circle.r > canvasRef.current.height + margen){
+        circle.dy = choose(arraySpeed)*-1;
+      }else if(circle.y - circle.r < -margen){
+        circle.dy = choose(arraySpeed);
       }
 
       //Actualizar posicion circulo
@@ -97,12 +135,15 @@ function App() {
       drawRect(obj, ctx, circle);
     }
     }
+  }
+
   };
 
   useEffect(()=>{runCoco()},[]);
 
   return (
     <div className="App">
+      <Control/>
       <header className="App-header">
         <Webcam
           ref={webcamRef}
