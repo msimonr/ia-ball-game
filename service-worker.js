@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ia-ball-game/precache-manifest.7fbd75b7785573617347608b8a682416.js"
+  "/ia-ball-game/precache-manifest.0ba93d9a1c39e8bfb6ecea45a4e52b4a.js"
 );
 
 self.addEventListener('message', (event) => {

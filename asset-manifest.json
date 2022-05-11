@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/ia-ball-game/static/css/main.a4687642.chunk.css",
-    "main.js": "/ia-ball-game/static/js/main.39b3aa37.chunk.js",
-    "main.js.map": "/ia-ball-game/static/js/main.39b3aa37.chunk.js.map",
+    "main.css": "/ia-ball-game/static/css/main.ca49c6b0.chunk.css",
+    "main.js": "/ia-ball-game/static/js/main.23c8d678.chunk.js",
+    "main.js.map": "/ia-ball-game/static/js/main.23c8d678.chunk.js.map",
     "runtime-main.js": "/ia-ball-game/static/js/runtime-main.3f4525d6.js",
     "runtime-main.js.map": "/ia-ball-game/static/js/runtime-main.3f4525d6.js.map",
-    "static/js/2.fd8b20c2.chunk.js": "/ia-ball-game/static/js/2.fd8b20c2.chunk.js",
-    "static/js/2.fd8b20c2.chunk.js.map": "/ia-ball-game/static/js/2.fd8b20c2.chunk.js.map",
+    "static/js/2.4e6200e1.chunk.js": "/ia-ball-game/static/js/2.4e6200e1.chunk.js",
+    "static/js/2.4e6200e1.chunk.js.map": "/ia-ball-game/static/js/2.4e6200e1.chunk.js.map",
     "index.html": "/ia-ball-game/index.html",
-    "precache-manifest.7fbd75b7785573617347608b8a682416.js": "/ia-ball-game/precache-manifest.7fbd75b7785573617347608b8a682416.js",
+    "precache-manifest.0ba93d9a1c39e8bfb6ecea45a4e52b4a.js": "/ia-ball-game/precache-manifest.0ba93d9a1c39e8bfb6ecea45a4e52b4a.js",
     "service-worker.js": "/ia-ball-game/service-worker.js",
-    "static/css/main.a4687642.chunk.css.map": "/ia-ball-game/static/css/main.a4687642.chunk.css.map",
-    "static/js/2.fd8b20c2.chunk.js.LICENSE.txt": "/ia-ball-game/static/js/2.fd8b20c2.chunk.js.LICENSE.txt"
+    "static/css/main.ca49c6b0.chunk.css.map": "/ia-ball-game/static/css/main.ca49c6b0.chunk.css.map",
+    "static/js/2.4e6200e1.chunk.js.LICENSE.txt": "/ia-ball-game/static/js/2.4e6200e1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3f4525d6.js",
-    "static/js/2.fd8b20c2.chunk.js",
-    "static/css/main.a4687642.chunk.css",
-    "static/js/main.39b3aa37.chunk.js"
+    "static/js/2.4e6200e1.chunk.js",
+    "static/css/main.ca49c6b0.chunk.css",
+    "static/js/main.23c8d678.chunk.js"
   ]
 }
