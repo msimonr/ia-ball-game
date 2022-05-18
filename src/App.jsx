@@ -8,13 +8,14 @@ import { drawRect, colision, drawLose, choose} from "./utilities";
 //Game variables
 var toque = undefined;
 var id = undefined;
-var circle = {'x': -100, 'y':-100, 'r':50, 'dx':1, 'dy':1, 'speed':20};
+var circle = {'x': -100, 'y':-100, 'r':50, 'dx':1, 'dy':1, 'speed':20, 'transparencia': 60};
 
 class Control extends React.Component{
 
   state = {
     speed: 20,
-    radio: 50
+    radio: 50,
+    transparencia: 60
   }
 
   reiniciar = () =>{
@@ -23,6 +24,7 @@ class Control extends React.Component{
       circle.y = -100;
       circle.r = this.state.radio;
       circle.speed = this.state.speed;
+      circle.transparencia = this.state.transparencia;
       toque = undefined;     
     }
   }
@@ -35,6 +37,10 @@ class Control extends React.Component{
     this.setState({radio: parseFloat(e.target.value)});
   }
 
+  setTransparencia = (e) =>{
+    this.setState({transparencia: parseFloat(e.target.value)});
+  }
+
   render(){
     return(
       <div className="Control">
@@ -42,6 +48,8 @@ class Control extends React.Component{
         <input type="number" min='1' id="speed" defaultValue={this.state.speed} onChange={this.setSpeed}/>
         <label>Radio de bola</label>
         <input type="number" min='10' id="radio" defaultValue={this.state.radio} onChange={this.setRadio}/>
+        <label>Transparencia</label>
+        <input type="number" min='10' id="transparencia" defaultValue={this.state.transparencia} onChange={this.setTransparencia}/>
         <button onClick={this.reiniciar}>Reiniciar</button>
       </div>
     )

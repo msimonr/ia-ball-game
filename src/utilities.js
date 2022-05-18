@@ -1,9 +1,14 @@
 export const drawRect = (detections, ctx, circle) => {
 
-    ctx.fillStyle = '#FF000080';
+    ctx.fillStyle = `#FF0000${circle.transparencia}`;
     ctx.beginPath();
     ctx.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI, 0);
     ctx.fill();
+    ctx.strokeStyle = `#000000${circle.transparencia}`;
+    ctx.lineWidth = circle.r * 0.1;
+    ctx.stroke();
+
+
 
     detections.forEach(prediction => {
         //resultados predicciones
@@ -85,10 +90,13 @@ export const drawLose = (video, box, ctx, circle) => {
     ctx.rect(x, y, width, height);
     ctx.stroke();
 
-    ctx.fillStyle = '#FF000080';
+    ctx.fillStyle = `#FF0000${circle.transparencia}`;
     ctx.beginPath();
     ctx.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI, 0);
     ctx.fill();
+    ctx.strokeStyle = `#000000${circle.transparencia}`;
+    ctx.lineWidth = circle.r * 0.1;
+    ctx.stroke();
 
 }
 
